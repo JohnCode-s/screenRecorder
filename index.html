@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Screen Recorder</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+     <div class="row h">
+            <div class="col-12">
+                <h4 class="text-center">Free Screen Recorder</h4>
+            </div>
+     </div>
+     <hr>
+    <div class="container mt-5">
+        
+        <div class="row">
+            <div class="col-6">
+                <span>
+                    <a id="download" style="display: none;">
+                        <button type="button" class="btn btn-primary mb-4"> Download</button>
+                    </a>        
+                </span>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-danger" id="stop" disabled style="border-radius: 100px;">Stop</button>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-4">  
+                <button type="button" onclick="recordAudio()" class="btn btn-info">Record Audio</button>
+            </div>
+             <div class="col-4">
+                 <button type="button" onclick="recordVideo()" class="btn btn-info">Record Video</button>
+            </div>
+            <div class="col-4">
+                  <button type="button" onclick="recordScreen()" class="btn btn-info">Record Screen</button>
+            </div>
+        </div>
+    
+       <div class="row">
+           <div class="col-lg-6 col-sm-12 mt-4">
+                <video class="video-fluid" autoplay controls>
+                </video>
+           </div>
+       </div>
+    </div>
+
+    <script src="jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="app2.js"></script>
+</body>
+</html>
