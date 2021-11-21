@@ -4,7 +4,7 @@ const videoElement = document.querySelector("video");
 const downloadLink = document.getElementById('download');
 const stopButton = document.getElementById('stop');
 
-
+videoElement.style.display = 'none'
 function startRecord() {
     $('.btn-info').prop('disabled', true);
     $('#stop').prop('disabled', false);
@@ -53,7 +53,7 @@ const handleRecord = function ({ stream, mimeType }) {
         downloadLink.download = `${filename || 'recording'}.webm`;
         stopRecord();
         videoElement.style.display = 'block'
-        //videoElement.srcObject = null;
+        videoElement.srcObject = null;
         videoElement.src = url;
 
        if (screen.width > 920) {
@@ -80,6 +80,7 @@ async function recordAudio() {
 }
 
 async function recordVideo() {
+    videoElement.style.display = 'block'
     const mimeType = 'video/webm';
     shouldStop = false;
     const constraints = {
@@ -98,8 +99,7 @@ async function recordVideo() {
 
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
     
-    videoElement.srcObject = stream;
-      if (screen.width > 920) {
+     if (screen.width > 920) {
            videoElement.width = 920;
        } else if (screen.width > 720) {
            videoElement.width = 720
@@ -108,6 +108,7 @@ async function recordVideo() {
        } else {
            videoElement.width = 320
        }
+    videoElement.srcObject = stream;
     handleRecord({ stream, mimeType })
 }
 
