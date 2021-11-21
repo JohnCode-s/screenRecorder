@@ -6,12 +6,15 @@ var download = document.querySelector(".download-btn");
 start.addEventListener("click", async function () {
     let stream = await navigator.mediaDevices.getDisplayMedia({
         video: true,
-        audio: true
     });
 
     mediaRecorder = new MediaRecorder(stream, {
         mimeType: "video/webm"
-    })
+    });
+
+    mediaRecorder = new MediaRecorder(stream, {
+        mimeType: "audio/webm"
+    });
     
     mediaRecorder.start()
     let chunks = []
